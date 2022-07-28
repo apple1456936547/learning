@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <meta name="description" content="">
+    <style>
+        body {
+            width:100%;
+            overflow: hidden;
+        }
+
+        div {
+            padding: 50px 15px;
+            width: 100%;
+            display: Flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .button, .button02, .button03 {
+            display: block;
+            width: 150px;
+            height: 25px;
+            background: green;
+            color: black;
+            font-size: 20px;
+            text-align: center;
+            line-height: 120%;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 120%;
+            text-align: center;
+        }
+
+        h2 {
+            transition: 0.5s;
+        }
+
+        .active {
+            opacity: 0;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="button" class="button" value="button">
+        <h1>123456</h1>
+
+        <input type="button02" class="button02" value="button02">
+        <h4>123456789</h4>
+
+        <input type="button03" class="button03" value="button03">
+        <h2>123456789</h2>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <!-- 練習一 -->
+    <script>
+        $(document).ready(function () {
+            $(".button").click(function () {
+                $("h1").toggle();
+            });
+        });
+    </script>
+    <!-- 練習二 -->
+    <script>
+        $(document).ready(function () {
+            $(".button02").click(function () {
+                $("h4").slideToggle(1000);
+            });
+        });
+    </script>
+      <!-- 練習三 -->
+      <script>
+        $(document).ready(function () {
+            $(".button03").click(function () {
+                $('h2').toggleClass('active');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            
+        });
+    </script>
+</body>
+
+</html>
