@@ -54,10 +54,10 @@
 
         .all_main ul {
             padding: 0 0;
-            margin:0;
+            margin: 0;
         }
 
-        
+
         .all_main li {
             list-style: none;
         }
@@ -141,108 +141,99 @@
         }
 
         .all_main_key_word {
-            opacity:0;
+            opacity: 0;
             position: absolute;
-            left:0;
-            top:0;
+            left: 0;
+            top: 0;
         }
 
-        .animated15 { 
-	    animation: none;
+        .animated15 {
+            animation: none;
         }
 
         /* 內容 除了首頁記得把其他keyword刪掉 */
         /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
-        .menu {
-            width:100%;
-            padding:10px;
-            background-color:green;
-            display: flex;
-            justify-content: space-between;
-            align-items:center;
-            overflow:initial;
-        }
 
-        .menu .index01 {
-            padding:15px;
-            background-color:pink;
-            border:1px white solid;
-            color:black;
-            font-size:22px;
-            font-weight:Bold;
-            text-align:center;
-        }
-
-        .menu ul {
-            max-width:600px;
-            width:100%;
-            display:flex;
-            align-items: flex-start;
-        }
-
-        .menu li {
-            padding:5px;
-            color:black;
-            font-size:18px;
-            font-weight:Bold;
-            line-height:120%;
-            text-align:center;
-            letter-spacing: 2px;
-            text-indent:2px;
+        .aa {
+            width: 100%;
+            background-color: pink;
+            padding: 0 0 200px 0;
             position: relative;
-            cursor: pointer;
         }
 
-        .menu ul>li>ul {
-            display:flex;
+        .bb {
+            width: 100%;
+            height: 50px;
+            background-color: green;
+        }
+
+        .cc {
+            max-width: 250px;
+            width: 100%;
+            display: flex;
             flex-direction: column;
-            width:100%;
+            background-color: bisque;
+            border: 1px red solid;
             position: absolute;
-            left:0;
-            z-index:999;
-            display:none;
+            top: 0;
+            transform: translateX(-300px);
+            transition: 1s;
         }
 
-        .menu ul>li>.open {
-            display:block;
+        .cc i {
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 150%;
+            border-bottom: 1px black solid;
+            padding-bottom: 5px;
         }
 
+        .cc i:nth-child(n+2) {
+            margin-top: 5px;
+        }
+
+        .cc_block{
+            transform: translateX(0);
+            transition: 1s;
+        }
     </style>
 </head>
 
 <body>
     <div class="all_main">
-        <div class="menu">
-            <!-- <a class="hamburger"></a> -->
-            <a class="index01" href="#">index</a>
-            <ul>
-                <li>關於我們1</li>
-                <li>關於我們2</li>
-                <li>
-                    關於我們3
-                    <ul>
-                        <li>你說呢呢1</li>
-                        <li>你說呢呢2</li>
-                        <li>你說呢呢3</li>
-                        <li>你說呢呢4</li>
-                    </ul>
-                </li>
-                <li>關於我們4</li>
-                <li>關於我們5</li>
-            </ul>
+        <div class="all_main_key_word">
+            <h2>123</h2>
+            <h3>123</h3>
+            <h4>123</h4>
+            <h5>123</h5>
+            <h6>123</h6>
+        </div>
+        <div class="aa">
+            <div class="bb"></div>
+            <div class="cc">
+                <i>123</i>
+                <i>456</i>
+                <i>789</i>
+                <i>101112</i>
+                <i>131415</i>
+            </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous">
+        </script>
 
     <script>
         $(document).ready(function () {
-            $('.menu ul>li').click(function (e) { 
+            $('.bb').click(function (e) {
                 e.preventDefault();
-                $('.menu ul>li>ul').toggleClass('open');
+                $('.cc').toggleClass('cc_block')
             });
         });
     </script>
+
 </body>
 
 </html>

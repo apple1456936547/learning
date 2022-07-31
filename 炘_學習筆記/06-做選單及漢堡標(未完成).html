@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/jquery-1.11.3.min.js"></script>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+
+        .all_main li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .animated15 {
+            animation: none;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
+
+        .menu {
+            width: 100%;
+            padding:0 10px 300px 10px;
+            background-color: green;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: initial;
+        }
+
+        .menu .index01 {
+            padding: 15px;
+            background-color: pink;
+            border: 1px white solid;
+            color: black;
+            font-size: 22px;
+            font-weight: Bold;
+            text-align: center;
+        }
+
+        .menu_hid {
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        .menu li {
+            padding: 5px;
+            color: black;
+            font-size: 18px;
+            font-weight: Bold;
+            line-height: 120%;
+            text-align: center;
+            letter-spacing: 2px;
+            text-indent: 2px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .menu_hid>li>ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            z-index: 999;
+            display: none;
+        }
+
+        .menu_hid>li>.open {
+            display: block;
+        }
+
+        .hamburger {
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            border-radius: 150px;
+            display: none;
+        }
+
+        .hamburger_dis {
+            opacity: 0;
+        }
+
+        /* @media (max-width:800px) { */
+            .hamburger {
+                display: block;
+                position: absolute;
+                left: 15px;
+                z-index: 999;
+            }
+
+            .menu {
+                justify-content: center;
+                position: relative;
+            }
+
+            .menu_hid {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                position: absolute;
+                top: 0;
+                transform: translateX(-3000px);
+                z-index: 99999;
+                transition: 1s;
+            }
+
+            .ul_do {
+                transform: translateX(0);
+                transition: 1s;
+                z-index:999;
+            }
+
+        /* } */
+    </style>
+</head>
+
+<body>
+    <div class="all_main">
+        <div class="menu">
+            <a class="hamburger"></a>
+            <a class="index01" href="#">index</a>
+            <ul class="menu_hid">
+                <li>關於我們1</li>
+                <li>關於我們2</li>
+                <li>
+                    關於我們3
+                    <ul>
+                        <li>你說呢呢1</li>
+                        <li>你說呢呢2</li>
+                        <li>你說呢呢3</li>
+                        <li>你說呢呢4</li>
+                    </ul>
+                </li>
+                <li>關於我們4</li>
+                <li>關於我們5</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.hamburger').click(function (e) {
+                e.preventDefault();
+                $(this).toggleClass('hamburger_dis');
+                $('.menu_hid').toggleClass('ul_do');
+            });
+        });
+    </script>
+</body>
+
+</html>

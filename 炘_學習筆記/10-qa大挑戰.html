@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/jquery-1.11.3.min.js"></script>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+
+        .all_main li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .animated15 {
+            animation: none;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
+        .kk01 {
+            max-width:500px;
+            width:100%;
+        }
+
+        .kk01 li b::after {
+            content: "v";
+            color: #333333;
+            font-size: 25px;
+            position: absolute;
+            right: 20px;
+            transition: .5s ease;
+        }
+
+        .kk01 li p {
+            display: none;
+        }
+
+        .close{
+            background-color:burlywood;
+        }
+
+        .close::after {
+            transform: rotate(-180deg);
+            transition: .5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all_main">
+        <div class="all_main_key_word">
+            <h2>123</h2>
+            <h3>123</h3>
+            <h4>123</h4>
+            <h5>123</h5>
+            <h6>123</h6>
+        </div>
+        <ul class="kk01">
+            <li>
+                <b>1. 關於個性</b>
+                <p>
+                    <span>每隻貓咪的個性都不一樣，適應力較快的貓咪，一般回到新家就會調皮搗蛋，有些適應力較慢的小貓，有可能會躲在角落等等，初期建議先關籠飼養，較能觀察精神狀況，飲食情況，跟便便情形如何。</span>
+                </p>
+            </li>
+            <li>
+                <b>1. 關於個性</b>
+                <p>
+                    <span>每隻貓咪的個性都不一樣，適應力較快的貓咪，一般回到新家就會調皮搗蛋，有些適應力較慢的小貓，有可能會躲在角落等等，初期建議先關籠飼養，較能觀察精神狀況，飲食情況，跟便便情形如何。</span>
+                </p>
+            </li>
+            <li>
+                <b>1. 關於個性</b>
+                <p>
+                    <span>每隻貓咪的個性都不一樣，適應力較快的貓咪，一般回到新家就會調皮搗蛋，有些適應力較慢的小貓，有可能會躲在角落等等，初期建議先關籠飼養，較能觀察精神狀況，飲食情況，跟便便情形如何。</span>
+                </p>
+            </li>
+            <li>
+                <b>1. 關於個性</b>
+                <p>
+                    <span>每隻貓咪的個性都不一樣，適應力較快的貓咪，一般回到新家就會調皮搗蛋，有些適應力較慢的小貓，有可能會躲在角落等等，初期建議先關籠飼養，較能觀察精神狀況，飲食情況，跟便便情形如何。</span>
+                </p>
+            </li>
+            <li>
+                <b>1. 關於個性</b>
+                <p>
+                    <span>每隻貓咪的個性都不一樣，適應力較快的貓咪，一般回到新家就會調皮搗蛋，有些適應力較慢的小貓，有可能會躲在角落等等，初期建議先關籠飼養，較能觀察精神狀況，飲食情況，跟便便情形如何。</span>
+                </p>
+            </li>
+        </ul>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.kk01 li b').click(function () {
+                // 打開或關閉
+                // next 是往下第二個元素找的意思
+                // 先去父層再往下找p顯示然後再回父層找同層找到裡面的p隱藏
+                $(this).parent().find('p').slideToggle(500).parent().siblings().find('p').slideUp(500);
+                $(this).parent().siblings().find('b').removeClass('close');
+                // 新增class
+                $(this).toggleClass('close');
+            });
+        }); 
+    </script>
+</body>
+
+</html>

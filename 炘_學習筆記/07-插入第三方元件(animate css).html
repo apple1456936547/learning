@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/jquery-1.11.3.min.js"></script>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+
+        .all_main li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .animated15 {
+            animation: none;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
+        .box01 {
+            width: 100%;
+            background-color: orchid;
+            padding: 150px 15px;
+            text-align: center;
+        }
+
+        .box01 h5 {
+            /* color: Black; */
+            font-weight: bold;
+            font-size: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all_main">
+        <div class="all_main_key_word">
+            <h2>123</h2>
+            <h3>123</h3>
+            <h4>123</h4>
+            <h5>123</h5>
+            <h6>123</h6>
+        </div>
+        <div class="box01">
+            <h5 class="animate__animated animate__slideInUp">123</h5>
+
+            <!-- 
+                延伸應用 
+                因為animate.css 
+                是透過新增class去做出動畫 
+                因此可以弄個點擊新增class進而引入動畫效果 (應用到之前教的新增移除class那堂課)
+            -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous">
+        </script>
+    <script>
+        $(document).ready(function () {
+            $('.box01 h5').click(function (e) {
+                e.preventDefault();
+                // $('.box01 h5').css('color', 'red');
+                $('.box01 h5').attr('style', 'color:red');
+            });
+        });
+    </script>
+</body>
+
+</html>
